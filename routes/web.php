@@ -11,6 +11,8 @@ Route::get('/enkripsi', [DikiController::class, 'enkripsi']);
 Route::get('/data/', [DikiController::class, 'data']);
 Route::get('/data/{data_rahasia}', [DikiController::class, 'data_proses']);
 
+Route::get('/hash', [DikiController::class, 'hash']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
