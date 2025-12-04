@@ -1,11 +1,15 @@
 <?php
 
+use App\Http\Controllers\DikiController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/enkripsi', [DikiController::class, 'enkripsi']);
+Route::get('/data/', [DikiController::class, 'data']);
+Route::get('/data/{data_rahasia}', [DikiController::class, 'data_proses']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -17,4 +21,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
